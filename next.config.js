@@ -6,7 +6,6 @@ module.exports = {
   },
   experimental: {
     serverActions: {},
-    missingSuspenseWithCSRBailout: false,
   },
   images: {
     formats: ['image/avif', 'image/webp'],
