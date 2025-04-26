@@ -74,7 +74,6 @@ export default function Search() {
         autoComplete="off"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
-        defaultValue={searchParams?.get('q') || ''}
         className="w-full px-4 py-2 text-sm text-black bg-white border rounded-lg placeholder:text-neutral-500 dark:border-neutral-800 dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
       />
       <div className="absolute top-0 right-0 flex items-center h-full mr-3">
