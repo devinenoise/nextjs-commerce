@@ -8,13 +8,12 @@ export default function ProductGridItems({ products }: { products: Product[] }) 
     <>
       {products.map((product) => (
         <Grid.Item key={product.handle} className="animate-fadeIn">
-          <Link className="relative inline-block h-full w-full" href={`/product/${product.handle}`}>
+          <Link className="relative inline-block w-full h-full" href={`/product/${product.handle}`}>
             <GridTileImage
               alt={product.title}
               label={{
                 title: product.title,
-                // @ts-expect-error - Orama converts `maxVariantPrice` to `max`
-                amount: product.priceRange.max,
+                amount: product.priceRange?.maxVariantPrice?.amount,
                 currencyCode: product.priceRange?.maxVariantPrice?.currencyCode
               }}
               src={product.featuredImage?.url}
