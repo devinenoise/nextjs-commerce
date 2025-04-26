@@ -51,6 +51,5 @@ export const getCollectionProductsQuery = /* GraphQL */ `
         }
       }
     }
-  }
-  ${productFragment}
+  }${productFragment}
 `;
