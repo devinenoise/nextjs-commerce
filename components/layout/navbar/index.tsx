@@ -14,14 +14,14 @@ export default async function Navbar() {
 
   return (
     <nav className="relative flex items-center justify-between p-4 lg:px-6">
-      <div className="block flex-none md:hidden">
+      <div className="flex-none block md:hidden">
         <MobileMenu menu={menu} />
       </div>
-      <div className="flex w-full items-center">
+      <div className="flex items-center w-full">
         <div className="flex w-full md:w-1/3">
-          <Link href="/" className="mr-2 flex w-full items-center justify-center md:w-auto lg:mr-6">
+          <Link href="/" className="flex items-center justify-center w-full mr-2 md:w-auto lg:mr-6">
             <LogoSquare />
-            <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
+            <div className="flex-none ml-2 text-sm font-medium uppercase md:hidden lg:block">
               {SITE_NAME}
             </div>
           </Link>
@@ -40,7 +40,7 @@ export default async function Navbar() {
             </ul>
           ) : null}
         </div>
-        <div className="hidden justify-center md:flex md:w-1/3">
+        <div className="justify-center hidden md:flex md:w-1/3">
           <Search />
         </div>
         <div className="flex justify-end md:w-1/3">
