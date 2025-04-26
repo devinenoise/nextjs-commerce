@@ -8,11 +8,12 @@ export const runtime = 'edge';
 
 export const revalidate = 43200; // 12 hours in seconds
 
-export async function generateMetadata({
-  params
-}: {
-  params: { page: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ page: string }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const page = await getPage(params.page);
 
   if (!page) return notFound();
@@ -28,7 +29,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }: { params: { page: string } }) {
+export default async function Page(props: { params: Promise<{ page: string }> }) {
+  const params = await props.params;
   const page = await getPage(params.page);
 
   if (!page) return notFound();

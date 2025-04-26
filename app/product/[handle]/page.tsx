@@ -13,11 +13,12 @@ import Link from 'next/link';
 
 export const runtime = 'edge';
 
-export async function generateMetadata({
-  params
-}: {
-  params: { handle: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ handle: string }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
@@ -51,7 +52,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProductPage({ params }: { params: { handle: string } }) {
+export default async function ProductPage(props: { params: Promise<{ handle: string }> }) {
+  const params = await props.params;
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
